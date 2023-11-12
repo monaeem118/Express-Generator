@@ -11,6 +11,7 @@ var usersRouter = require("./routes/users");
 const campsiteRouter = require("./routes/campsiteRouter");
 const promotionRouter = require("./routes/promotionRouter");
 const partnerRouter = require("./routes/partnerRouter");
+const uploadRouter = require("./routes/uploadRouter");
 
 const mongoose = require("mongoose");
 
@@ -48,6 +49,7 @@ app.all("*", (req, res, next) => {
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "jade");
 
+app.use("/imageUpload", uploadRouter);
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
